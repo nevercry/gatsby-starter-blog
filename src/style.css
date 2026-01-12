@@ -329,3 +329,19 @@ a:focus {
     list-style-position: inside;
   }
 }
+
+/* 文章内图片自适应并居中 */
+article img,
+.post img,
+.blog-post img,
+.post-content img,
+.content img,
+.markdown img,
+.markdown-body img,
+.gatsby-resp-image-image {
+  max-width: min(100%, 900px);
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0.6rem auto;
+}

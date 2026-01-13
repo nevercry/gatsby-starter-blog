@@ -15,7 +15,7 @@ module.exports = {
       summary: `who lives and works in Nanjing building useful things.`,
     },
     description: `重新开始写作的地方`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://buroku.nevercry.top/`,
     social: {
       github: `nevercry`,
     },

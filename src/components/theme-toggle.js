@@ -1,0 +1,16 @@
+import * as React from "react"
+
+const ThemeToggle = ({ theme, toggleTheme }) => {
+  return (
+    <button
+      className="theme-toggle"
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {theme === "dark" ? "☀️" : "🌙"}
+    </button>
+  )
+}
+
+export default ThemeToggle

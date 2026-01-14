@@ -8,6 +8,9 @@ const Layout = ({ location, title, children }) => {
   const [theme, setTheme] = React.useState("light")
 
   React.useEffect(() => {
+    // Only run in browser (not during SSR)
+    if (typeof window === "undefined") return
+
     // Get theme from localStorage or system preference
     const savedTheme = localStorage.getItem("theme")
     if (savedTheme) {
@@ -39,6 +42,8 @@ const Layout = ({ location, title, children }) => {
   }, [])
 
   const toggleTheme = () => {
+    if (typeof window === "undefined") return
+
     const newTheme = theme === "light" ? "dark" : "light"
     setTheme(newTheme)
     localStorage.setItem("theme", newTheme)

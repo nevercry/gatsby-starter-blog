@@ -54,15 +54,21 @@ const Layout = ({ location, title, children }) => {
 
   if (isRootPath) {
     header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
+      <div className="header-content">
+        <h1 className="main-heading">
+          <Link to="/">{title}</Link>
+        </h1>
+        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+      </div>
     )
   } else {
     header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
+      <div className="header-content">
+        <Link className="header-link-home" to="/">
+          {title}
+        </Link>
+        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+      </div>
     )
   }
 
@@ -75,7 +81,6 @@ const Layout = ({ location, title, children }) => {
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
       </footer>
-      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
     </div>
   )
 }

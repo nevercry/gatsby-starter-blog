@@ -267,9 +267,27 @@ a:focus {
   margin-bottom: var(--spacing-12);
 }
 
+/* 新增: header 内容布局 */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .main-heading {
   font-size: var(--fontSize-7);
   margin: 0;
+  line-height: 1.2;
+  flex: 1;
+}
+
+.header-link-home {
+  font-size: var(--fontSize-2);
+  font-weight: var(--fontWeight-bold);
+  font-family: var(--font-heading);
+  text-decoration: none;
+  line-height: 1.2;
+  display: inline-block;
 }
 
 .post-list-item {
@@ -361,41 +379,80 @@ article img,
   margin: 0.6rem auto;
 }
 
-/* Theme toggle button */
+/* Theme toggle button - 更新样式 */
 .theme-toggle {
-  position: fixed;
-  bottom: var(--spacing-8);
-  right: var(--spacing-8);
-  background-color: var(--color-primary);
-  color: white;
+  background-color: transparent;
+  color: var(--color-text);
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  flex-shrink: 0;
+  margin-left: var(--spacing-4);
+  padding: 0;
+}
+
+/* 首页按钮对齐 - 与大标题对齐 */
+.global-wrapper[data-is-root-path="true"] .theme-toggle {
+  margin-top: calc((var(--fontSize-7) * 1.2 - 40px) / 2);
+}
+
+/* 文章页按钮对齐 - 与小标题对齐 */
+.global-wrapper:not([data-is-root-path="true"]) .theme-toggle {
+  margin-top: calc((var(--fontSize-2) * 1.2 - 40px) / 2);
 }
 
 .theme-toggle:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-accent);
 }
 
 .theme-toggle:active {
   transform: scale(0.95);
 }
 
+.theme-toggle svg {
+  display: block;
+}
+
 [data-theme="dark"] .theme-toggle {
-  background-color: var(--color-accent);
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
 }
 
 [data-theme="dark"] .theme-toggle:hover {
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  background-color: var(--color-accent);
+}
+
+/* 移动端适配 */
+@media (max-width: 42rem) {
+  .header-content {
+    align-items: flex-start;
+  }
+  
+  .main-heading {
+    font-size: var(--fontSize-5);
+  }
+  
+  /* 首页移动端按钮对齐 */
+  .global-wrapper[data-is-root-path="true"] .theme-toggle {
+    width: 36px;
+    height: 36px;
+    margin-top: calc((var(--fontSize-5) * 1.2 - 36px) / 2);
+  }
+  
+  /* 文章页移动端按钮对齐 */
+  .global-wrapper:not([data-is-root-path="true"]) .theme-toggle {
+    width: 36px;
+    height: 36px;
+    margin-top: calc((var(--fontSize-2) * 1.2 - 36px) / 2);
+  }
+  
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
 }

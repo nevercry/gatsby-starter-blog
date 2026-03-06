@@ -13,7 +13,9 @@ collections:
     label: "Blog"
     folder: "content/blog"
     create: true
-    slug: "{{slug}}/index"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
